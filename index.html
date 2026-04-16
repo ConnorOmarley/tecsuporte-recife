@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TecSuporte | Assistência Técnica Especializada</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Tec <span class="highlight">Suporte</span></h1>
+            <p>Suporte técnico especializado em computadores, notebooks e redes em Recife.</p>
+            <a href="#servicos" class="btn-primary">Nossos Serviços</a>
+        </div>
+    </header>
+
+    <section class="container" id="servicos">
+        <h2 class="section-title">Nossos Serviços</h2>
+        <p style="text-align: center; color: var(--text-secondary); margin-bottom: 30px;">Clique nos cards para ver detalhes e preços</p>
+        
+        <div class="features-grid">
+            <div class="card service-card" onclick="toggleDetails(this)">
+                <i class="fas fa-compact-disc"></i>
+                <h3>Formatação / Software</h3>
+                <div class="service-details">
+                    <p>Instalação de drivers, antivírus, navegador, WinRar e Office (conforme licença). <br><strong>Investimento: R$ 90,00</strong></p>
+                </div>
+            </div>
+
+            <div class="card service-card" onclick="toggleDetails(this)">
+                <i class="fas fa-database"></i>
+                <h3>Formatação + Backup</h3>
+                <div class="service-details">
+                    <p>Salvamos todos os seus arquivos antes e retornamos após formatar a máquina com segurança. <br><strong>Investimento: R$ 150,00</strong></p>
+                </div>
+            </div>
+
+            <div class="card service-card" onclick="toggleDetails(this)">
+                <i class="fas fa-broom"></i>
+                <h3>Limpeza Técnica</h3>
+                <div class="service-details">
+                    <p><strong>Externa:</strong> Tela, teclado e carcaça (R$ 30,00).<br><strong>Interna:</strong> Limpeza e troca de pasta térmica (R$ 120,00).</p>
+                </div>
+            </div>
+
+            <div class="card service-card" onclick="toggleDetails(this)">
+                <i class="fas fa-tools"></i>
+                <h3>Montagem de PC</h3>
+                <div class="service-details">
+                    <p>Montagem profissional com organização de cabos.<br>Básico: R$ 50 a R$ 150.<br>Gamer: R$ 250 a R$ 400+.</p>
+                </div>
+            </div>
+
+            <div class="card service-card" onclick="toggleDetails(this)">
+                <i class="fas fa-microchip"></i>
+                <h3>Troca / Instalação</h3>
+                <div class="service-details">
+                    <p>Substituição de peças simples (R$ 20 a R$ 80) ou instalações complexas (R$ 50 a R$ 300).</p>
+                </div>
+            </div>
+
+            <div class="card service-card" onclick="toggleDetails(this)">
+                <i class="fas fa-headset"></i>
+                <h3>Suporte Geral</h3>
+                <div class="service-details">
+                    <p>Aguarde o atendimento humano via WhatsApp para problemas diversos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="agendamento">
+        <h2 class="section-title">Solicitar Agendamento</h2>
+        <div class="card" style="width: 100%; max-width: 500px; margin: auto; text-align: left;">
+            <form id="formAgendamento">
+                <label class="field-label">Escreva seu nome:</label>
+                <input type="text" id="nome" placeholder="Ex: João Silva" required class="input-field">
+
+                <label class="field-label">Escolha o serviço:</label>
+                <select id="servico" class="input-field">
+                    <option value="" disabled selected>Clique para selecionar</option>
+                    <option value="Formatação">Formatação / Software</option>
+                    <option value="Backup">Formatação + Backup</option>
+                    <option value="Limpeza">Limpeza Técnica</option>
+                    <option value="Montagem">Montagem de Computador</option>
+                    <option value="Troca">Troca de Peças</option>
+                    <option value="Suporte">Suporte Geral</option>
+                </select>
+
+                <label class="field-label">Escolha data e hora:</label>
+                <input type="datetime-local" id="dataHora" required onclick="this.showPicker()" class="input-field" style="cursor: pointer;">
+            
+                <button type="button" onclick="enviarAgendamento()" class="btn-primary" style="width: 100%; cursor: pointer; border: none;">Agendar via WhatsApp</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="container" id="faq">
+        <h2 class="section-title">Perguntas Frequentes</h2>
+        <div class="faq-container">
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">Atende em domicílio? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Sim! Atendemos em toda Recife. Consulte a taxa para o seu bairro.</div>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">Quais as formas de pagamento? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Aceitamos Pix, Dinheiro e Cartões (Crédito e Débito).</div>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">Quanto tempo demora o serviço? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Geralmente entre 24h a 48h, dependendo da complexidade e do backup.</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 TecSuporte - Assistência Técnica em Recife</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5581971152754?text=Olá!%20Vi%20seu%20site%20e%20gostaria%20de%20tirar%20uma%20dúvida." class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <span class="tooltip">Dúvidas? Chame aqui!</span>
+    </a>
+
+    <script>
+        function toggleDetails(card) { card.classList.toggle('active'); }
+        function toggleFaq(item) { item.classList.toggle('active'); }
+
+        // MENSAGEM DO AGENDAMENTO (DETALHADA)
+        function enviarAgendamento() {
+            const nome = document.getElementById('nome').value;
+            const servico = document.getElementById('servico').value;
+            const dataHora = document.getElementById('dataHora').value;
+            
+            if(!nome || !dataHora || !servico) {
+                alert("Preencha todos os campos para o agendamento!");
+                return;
+            }
+
+            const dataFormatada = new Date(dataHora).toLocaleString('pt-BR');
+            const mensagem = `Olá! Meu nome é *${nome}*.\n\nVi seu site e gostaria de agendar um(a) *${servico}* para o dia/hora: *${dataFormatada}*.\n\nAguardo confirmação!`;
+            
+            window.open(`https://wa.me/5581971152754?text=${encodeURIComponent(mensagem)}`, '_blank');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+/* 1. CONFIGURAÇÕES GERAIS E CORES */
+:root {
+    --primary: #00d4ff;
+    --dark-bg: #0b0e11;
+    --card-bg: #15191d;
+    --input-bg: #1e2327;
+    --text-main: #ffffff;
+    --text-secondary: #a0a0a0;
+    --whatsapp-green: #25d366;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 2. HEADER */
+header {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(11, 14, 17, 0.8), rgba(11, 14, 17, 0.8)), 
+                url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1000') no-repeat center center/cover;
+    border-bottom: 2px solid var(--primary);
+}
+
+header h1 { font-size: 3rem; margin-bottom: 10px; }
+.highlight { color: var(--primary); }
+
+.btn-primary {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--primary);
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover { transform: scale(1.05); background-color: #fff; }
+
+/* 3. SERVIÇOS (CARDS) */
+.section-title { text-align: center; margin: 60px 0 30px; font-size: 2rem; }
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #222;
+    transition: all 0.3s ease;
+}
+
+.service-card {
+    cursor: pointer;
+    text-align: center;
+}
+
+.service-card i {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+    display: block;
+}
+
+.service-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    text-align: left;
+}
+
+.service-card.active {
+    border-color: var(--primary);
+    background-color: #1c2227;
+}
+
+.service-card.active .service-details {
+    max-height: 500px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #333;
+}
+
+/* 4. FORMULÁRIO DE AGENDAMENTO */
+.field-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: bold;
+}
+
+.input-field {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    background: var(--input-bg);
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-field:focus {
+    border-color: var(--primary);
+}
+
+/* Estilo do Calendário */
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+    transform: scale(1.3);
+}
+
+/* 5. FAQ */
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto 80px;
+}
+
+.faq-item {
+    background: var(--card-bg);
+    margin-bottom: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid #222;
+    transition: 0.3s;
+}
+
+.faq-question {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.faq-question i {
+    transition: transform 0.3s;
+    color: var(--primary);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+    padding-bottom: 20px;
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+/* 6. BOTÃO WHATSAPP FLUTUANTE */
+.whatsapp-btn {
+    position: fixed;
+    width: 65px;
+    height: 65px;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--whatsapp-green);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    z-index: 1000;
+    transition: 0.3s;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.1);
+}
+
+.tooltip {
+    position: absolute;
+    right: 80px;
+    background: white;
+    color: #333;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    opacity: 0;
+    transition: 0.3s;
+    pointer-events: none;
+    white-space: nowrap;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.whatsapp-btn:hover .tooltip {
+    opacity: 1;
+}
+
+/* 7. RODAPÉ */
+footer {
+    padding: 60px 0;
+    text-align: center;
+    background-color: #07090b;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    border-top: 1px solid #222;
+}
+
+/* 8. RESPONSIVIDADE */
+@media (max-width: 768px) {
+    header h1 { font-size: 2.2rem; }
+    .features-grid { grid-template-columns: 1fr; }
+    .whatsapp-btn { width: 55px; height: 55px; bottom: 20px; right: 20px; }
+    .tooltip { display: none; } /* Esconde o balão no celular para não tapar a tela */
+}
